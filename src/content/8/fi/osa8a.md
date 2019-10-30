@@ -87,7 +87,7 @@ Sovelluslogiikka säilyy yksinkertaisena ja selaimen koodi saa täsmälleen halu
 
 ### Skeema ja kyselyt
 
-Tutustutaan GraphQL:n peruskäsitteistöön toteuttamalla GraphQL-version osien 2 ja 3 puhelinluettelosovelluksesta.
+Tutustutaan GraphQL:n peruskäsitteistöön toteuttamalla GraphQL-versio osien 2 ja 3 puhelinluettelosovelluksesta.
 
 Jokaisen GraphQL-sovelluksen ytimessä on [skeema](https://graphql.org/learn/schema/), joka määrittelee minkä muotoista dataa sovelluksessa vaihdetaan clientin ja palvelimen välillä. Puhelinluettelon alustava skeema on seuraavassa:
 
@@ -232,7 +232,7 @@ vastaus on <i>null</i>
 }
 ```
 
-Kuten huomaamme, GraphQL kyselyn ja siihen vastauksena tulevan JSON:in muodoilla on vahva yhteys, voidaan ajatella että kysely kuvailee sen minkälaista dataa vastauksena halutaan. Ero REST:issä tehtäviin pyyntöihin on suuri, REST:iä käytettäessä pyynnon url ja sen tyyppi (GET, POST, PUT, DELETE) ei kerro mitään palautettavan datan muodosta. 
+Kuten huomaamme, GraphQL-kyselyn ja siihen vastauksena tulevan JSON:in muodoilla on vahva yhteys, voidaan ajatella että kysely kuvailee sen minkälaista dataa vastauksena halutaan. Ero REST:issä tehtäviin pyyntöihin on suuri, REST:iä käytettäessä pyynnon url ja sen tyyppi (GET, POST, PUT, DELETE) ei kerro mitään palautettavan datan muodosta. 
 
 GraphQL:n skeema kuvaa ainoastaan palvelimen ja sitä käyttävien clientien välillä liikkuvan tiedon muodon. Tieto voi olla organisoituna ja talletettuna palvelimeen ihan missä muodossa tahansa.
 
@@ -240,9 +240,9 @@ Nimestään huolimatta GraphQL:llä ei itseasiassa ole mitään tekemistä tieto
 
 ### Apollo server
 
-Toteuteaan nyt GraphQL-palvelin tämän hetken johtavaa kirjastoa [Apollo -serveriä](https://www.apollographql.com/docs/apollo-server/) käyttäen. 
+Toteutetaan nyt GraphQL-palvelin tämän hetken johtavaa kirjastoa [Apollo -serveriä](https://www.apollographql.com/docs/apollo-server/) käyttäen. 
 
-Luodaan uusi npm-projekti komennolla _npm init_ ja asennetaan tarvittavat riippuvuuet
+Luodaan uusi npm-projekti komennolla _npm init_ ja asennetaan tarvittavat riippuvuudet
 
 ```js
 npm install --save apollo-server graphql
@@ -337,7 +337,7 @@ const resolvers = {
 }
 ```
 
-kuten huomataan, vastaavat resolverit rakenteeltaan skeemassa määriteltyjä kyseilyitä:
+kuten huomataan, vastaavat resolverit rakenteeltaan skeemassa määriteltyjä kyselyitä:
 
 ```js
 type Query {
@@ -383,7 +383,7 @@ resolveri on funktio, joka palauttaa <i>kaikki</i> taulukon _persons_ oliot
 
 ### GraphQL-playground
 
-Kun Apollo -serveriä suoritetaan sovelluskehitysmoodissa, käynnistää se osoitteeseen [http://localhost:4000/graphql](http://localhost:4000/graphql) sovelluskehittäjälle erittäin hyödyllisen [GraphQL-playground](https://www.apollographql.com/docs/apollo-server/features/graphql-playground.html) näkymän, joka avulla on mahdollista tehdä kyselyjä palvelimelle.
+Kun Apollo -serveriä suoritetaan sovelluskehitysmoodissa, käynnistää se osoitteeseen [http://localhost:4000/graphql](http://localhost:4000/graphql) sovelluskehittäjälle erittäin hyödyllisen [GraphQL-playground](https://www.apollographql.com/docs/apollo-server/features/graphql-playground.html)-näkymän, joka avulla on mahdollista tehdä kyselyjä palvelimelle.
 
 Kokeillaan 
 
@@ -428,7 +428,7 @@ resolveri on funktio, joka poikkeaa kahdesta aiemmasta resolverista siinä että
 Parametreista toinen _args_ sisältää kyselyn parametrit. Resolveri siis palauttaa taulukosta
  _persons_ henkilön, jonka nimi on sama kuin <i>args.name</i> arvo. Ensimmäisenä olevaa parametria _root_ resolveri ei tarvitse.
 
- Itseasiassa kaikki resolverifunktiot saavat [neljä parametria](https://www.apollographql.com/docs/graphql-tools/resolvers.html#Resolver-function-signature). Javascriptissa parametrit voidaan kuitenkin jättää määrittelemättä, jos niitä ei tarvita. Tulemme käyttämään resolverien ensimmäistä ja kolmatta parametria vielä myöhemmin tässä osassa.
+Itse asiassa kaikki resolverifunktiot saavat [neljä parametria](https://www.apollographql.com/docs/graphql-tools/resolvers.html#Resolver-function-signature). Javascriptissa parametrit voidaan kuitenkin jättää määrittelemättä, jos niitä ei tarvita. Tulemme käyttämään resolverien ensimmäistä ja kolmatta parametria vielä myöhemmin tässä osassa.
 
 ### Oletusarvoinen resolveri
 

@@ -409,7 +409,7 @@ Mutaation toteuttava resolveri:
 Huomaa miten resolveri <i>destrukturoi</i> kirjautuneen käyttäjän kontekstista, eli sen sijaan että _currentUser_ otettaisiin erilliseen muuttujaan funktiossa
 
 ```js
-addAsFriend: async (root, args, { currentUser }) => {
+addAsFriend: async (root, args, context) => {
   const currentUser = context.currentUser
 ```
 
@@ -451,7 +451,7 @@ Voit olettaa tässä tehtävässä, että käyttäjä ei yritä luoda virheellis
 Seuraavien asioiden ei vielä tässä tehtävässä tarvitse toimia.
 
 - queryn _allBooks_ parametrilliset versiot
-- kirjailijoiden kenttä <i>bookCount</i>
+- kirjailijoiden kenttä _bookCount_
 - kirjojen kenttä _author_
 - mutaatio _editAuthor_
 
